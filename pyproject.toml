@@ -9,7 +9,7 @@ description = "utility script for creating data files for statistic based on kme
 authors = [
     {name = "Santino Faack", email = "santino_faack@gmx.de"}
 ]
-license = {text = "MIT"}
+license = {text = "GPL-3.0"}
 readme = "README.md"
 requires-python = ">=3.6"
 dependencies = [

@@ -13,7 +13,7 @@ setup(
     long_description_content_type = "text/markdown",
     author="Santino Faack",
     author_email="santino_faack@gmx.de",
-    license="MIT",
+    license="GPL-3.0",
     packages=find_packages(),
     url="https://github.com/SantaMcCloud/kmer2stats",
     scripts=[
