@@ -15,7 +15,7 @@ def parse_arguments():
     parser = argparse.ArgumentParser(
         prog="kmer2stats",
         description="This tool was designed to create data files for statistic based on kmers",
-        usage="kmer2stats count_file",
+        usage="kmer2stats.py count_file",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
         add_help=True,
     )

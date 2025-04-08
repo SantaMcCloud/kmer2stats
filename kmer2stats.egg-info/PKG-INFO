@@ -5,7 +5,7 @@ Summary: utility script for creating data files for statistic based on kmers
 Home-page: https://github.com/SantaMcCloud/kmer2stats
 Author: Santino Faack
 Author-email: Santino Faack <santino_faack@gmx.de>
-License: MIT
+License: GPL-3.0
 Project-URL: Homepage, https://github.com/SantaMcCloud/kmer2stats
 Requires-Python: >=3.6
 Description-Content-Type: text/markdown
