@@ -27,7 +27,7 @@ def parse_arguments():
         help="Input the counting file here."
     )
 
-    parser.add_argument("--version", action="version", version="1.0.0")
+    parser.add_argument("--version", action="version", version="1.0.1")
 
     parser.print_usage = parser.print_help
 

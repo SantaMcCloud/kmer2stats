@@ -16,7 +16,7 @@ if os.path.isfile(requirement_path):
 
 setup(
     name="kmer2stats",
-    version='1.0.0',
+    version='1.0.1',
     install_requires=install_requires,
     description=desc,
     long_description=long_description,
