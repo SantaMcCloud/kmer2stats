@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 desc = "utility script for creating data files for statistic based on kmers"
 setup(
     name="kmer2stats",
-    version='1.0',
+    version='1.0.0',
     description=desc,
     long_description=desc + "\n See README for more information.",
     author="Santino Faack",
