@@ -1,22 +1,19 @@
-Metadata-Version: 2.4
+Metadata-Version: 2.1
 Name: kmer2stats
 Version: 1.0.0
 Summary: utility script for creating data files for statistic based on kmers
 Home-page: https://github.com/SantaMcCloud/kmer2stats
 Author: Santino Faack
-Author-email: Santino Faack <santino_faack@gmx.de>
+Author-email: santino_faack@gmx.de
 License: GPL-3.0
-Project-URL: Homepage, https://github.com/SantaMcCloud/kmer2stats
-Requires-Python: >=3.6
 Description-Content-Type: text/markdown
 License-File: LICENSE
-Requires-Dist: pandas
-Requires-Dist: numpy
-Requires-Dist: argparse
-Requires-Dist: scikit-bio
-Dynamic: author
-Dynamic: home-page
-Dynamic: license-file
+Requires-Dist: python>=3.9
+Requires-Dist: pip>=24.2
+Requires-Dist: pandas>=2.2.2
+Requires-Dist: numpy>=1.26.4
+Requires-Dist: scikit-bio>=0.6.3
+Requires-Dist: argparse>=1.4.0
 
 # kmer2stats
 A tool for creating data files for statistic based on kmers
