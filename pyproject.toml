@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kmer2stats"
+version = "1.0.0"
+description = "utility script for creating data files for statistic based on kmers"
+authors = [
+    {name = "Santino Faack", email = "santino_faack@gmx.de"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.6"
+dependencies = [
+    "pandas",
+    "numpy",
+    "argparse",
+    "scikit-bio"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/SantaMcCloud/kmer2stats"
