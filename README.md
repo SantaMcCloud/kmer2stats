@@ -28,10 +28,17 @@ Use [Bioconda](https://bioconda.github.io/recipes/kmer2stats/README.html) to ins
 conda install kmer2stats
 ```
 
+## Dependencies
+
+- pandas>=2.2.2
+- numpy>=1.26.4
+- scikit-bio>=0.6.3
+- argparse>=1.4.0
+
 ## Usage
 
 ```bash
-kmer2stats.py count_file
+kmer2stats count_file
 ```
 
 Check [input](#input) for a example file if you want to make the count_file yourself or use the tool [Jellyfish](https://github.com/gmarcais/Jellyfish) to create a count_file.

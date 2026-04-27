@@ -1,32 +1,36 @@
 from setuptools import setup, find_packages
+import os
 
-## install main application
-desc = "utility script for creating data files for statistic based on kmers"
-
-with open("README.md", "r", encoding = "utf-8") as fh:
+# Read README for long description
+with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
-import os
-lib_folder = os.path.dirname(os.path.realpath(__file__))
-requirement_path = f"{lib_folder}/requirements.txt"
-install_requires = []
-if os.path.isfile(requirement_path):
-    with open(requirement_path) as f:
-        install_requires = f.read().splitlines()
+# Read requirements safely
+def read_requirements():
+    req_file = os.path.join(os.path.dirname(__file__), "requirements.txt")
+    if os.path.exists(req_file):
+        with open(req_file) as f:
+            return [line.strip() for line in f if line.strip()]
+    return []
 
 setup(
     name="kmer2stats",
-    version='1.0.1',
-    install_requires=install_requires,
-    description=desc,
-    long_description=long_description,
-    long_description_content_type = "text/markdown",
+    version="1.0.1",
     author="Santino Faack",
     author_email="santino_faack@gmx.de",
-    license="GPL-3.0",
-    packages=find_packages(),
+    description="Utility for computing k-mer-based statistics",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     url="https://github.com/SantaMcCloud/kmer2stats",
-    scripts=[
-        "script/kmer2stats.py"
-    ],
+    packages=find_packages(),
+    install_requires=read_requirements(),
+    license="GPL-3.0",
+    entry_points={
+        "console_scripts": [
+            "kmer2stats=kmer2stats.core:main"
+        ]
+    },
+
+    python_requires=">=3.8",
+    include_package_data=True,
 )

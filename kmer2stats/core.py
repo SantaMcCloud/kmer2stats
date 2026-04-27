@@ -127,6 +127,14 @@ def load_jellyfish_output(file_path):
     df = pd.read_csv(file_path, sep=" ", header=None, names=["kmer", "count"], skiprows=1)
     return df
 
+def main():
+    start_time = time.time()
+    args = parse_arguments()
+    result_df = compute_stats_from_counts(args.counting_file)
+    result_df.to_csv('compute_diversity.csv', sep='\t', index=True)
+    end_time = time.time()
+    print(f'Run time: {time.strftime("%H:%M:%S", time.gmtime(end_time - start_time))}')
+
 if __name__ == "__main__":
     start_time = time.time()
     args = parse_arguments()

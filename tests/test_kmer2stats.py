@@ -1,5 +1,5 @@
 import pandas as pd
-from kmer2stats import compute_stats_from_counts
+from kmer2stats.core import compute_stats_from_counts
 
 
 def test_kmer_file_input(tmp_path):
