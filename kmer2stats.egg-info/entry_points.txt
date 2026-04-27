@@ -1,0 +1,2 @@
+[console_scripts]
+kmer2stats = kmer2stats.core:main
