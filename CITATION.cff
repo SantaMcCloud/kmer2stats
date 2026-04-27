@@ -2,18 +2,28 @@ cff-version: 1.2.0
 title: "kmer2stats"
 message: "If you use this software, please cite it."
 type: software
-authors:
 
-- family-names: "Faack"
-  given-names: "Santino"
-  orcid: "https://orcid.org/0009-0004-0382-2023"
-  repository-code: "https://github.com/SantaMcCloud/kmer2stats"
-  version: "1.0.2"
-  date-released: 2026-04-27
-  license: "MIT"
-  abstract: "kmer2stats is a tool for computing statistical summaries from k-mer data."
-  keywords:
-- bioinformatics
-- k-mers
-- genomics
-- sequence analysis
+authors:
+  - family-names: "Faack"
+    given-names: "Santino"
+    email: "santino_faack@gmx.de"
+    orcid: "https://orcid.org/0009-0004-0382-2023"
+
+version: 1.0.2
+date-released: 2026-04-27
+
+repository-code: "https://github.com/SantaMcCloud/kmer2stats"
+
+license: "GPL-3.0"
+
+url: "https://github.com/SantaMcCloud/kmer2stats"
+
+keywords:
+  - k-mer
+  - bioinformatics
+  - genomics
+  - sequence analysis
+
+abstract: >
+  kmer2stats is a bioinformatics tool that processes k-mer count tables and
+  computes statistical summaries such as diversity metrics and frequency-based statistics.
