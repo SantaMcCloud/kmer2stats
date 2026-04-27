@@ -6,6 +6,7 @@ kmer2stats/core.py
 kmer2stats.egg-info/PKG-INFO
 kmer2stats.egg-info/SOURCES.txt
 kmer2stats.egg-info/dependency_links.txt
+kmer2stats.egg-info/entry_points.txt
 kmer2stats.egg-info/requires.txt
 kmer2stats.egg-info/top_level.txt
 tests/test_kmer2stats.py

@@ -1,11 +1,12 @@
 Metadata-Version: 2.4
 Name: kmer2stats
-Version: 1.0.1
-Summary: utility script for creating data files for statistic based on kmers
+Version: 1.0.2
+Summary: Utility for computing k-mer-based statistics
 Home-page: https://github.com/SantaMcCloud/kmer2stats
 Author: Santino Faack
 Author-email: santino_faack@gmx.de
 License: GPL-3.0
+Requires-Python: >=3.8
 Description-Content-Type: text/markdown
 License-File: LICENSE
 Requires-Dist: pandas>=2.2.2
@@ -20,6 +21,7 @@ Dynamic: home-page
 Dynamic: license
 Dynamic: license-file
 Dynamic: requires-dist
+Dynamic: requires-python
 Dynamic: summary
 
 # kmer2stats
@@ -52,10 +54,17 @@ Use [Bioconda](https://bioconda.github.io/recipes/kmer2stats/README.html) to ins
 conda install kmer2stats
 ```
 
+## Dependencies
+
+- pandas>=2.2.2
+- numpy>=1.26.4
+- scikit-bio>=0.6.3
+- argparse>=1.4.0
+
 ## Usage
 
 ```bash
-kmer2stats.py count_file
+kmer2stats count_file
 ```
 
 Check [input](#input) for a example file if you want to make the count_file yourself or use the tool [Jellyfish](https://github.com/gmarcais/Jellyfish) to create a count_file.
