@@ -8,7 +8,7 @@ authors:
   given-names: "Santino"
   orcid: "https://orcid.org/0009-0004-0382-2023"
   repository-code: "https://github.com/SantaMcCloud/kmer2stats"
-  version: "1.0.1"
+  version: "1.0.2"
   date-released: 2026-04-27
   license: "MIT"
   abstract: "kmer2stats is a tool for computing statistical summaries from k-mer data."
