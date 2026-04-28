@@ -2,18 +2,19 @@
 
 [![PyPI version](https://img.shields.io/pypi/v/kmer2stats.svg)](https://pypi.org/project/kmer2stats/)[![Bioconda](https://img.shields.io/conda/vn/bioconda/kmer2stats.svg)](https://anaconda.org/bioconda/kmer2stats)
 
-A tool for creating data files for statistic based on kmers. Kmer2stat create all form of diversity metrics like *shannon*,*chao1* or *inv_simpson*. Also normal statistic are calculated by kmer2stats like *total_count*,*unique_kmers* or *percent_singletons*. The output can be used for creating plots with scrips or other tools.
+**kmer2stats** computes k-mer based statistics for microbial community analysis, including a wide range of alpha diversity metrics (e.g. *Shannon*, *Chao1*, *inverse Simpson*) and descriptive count statistics (e.g. *total_count*, *unique_kmers*, *percent_singletons*). The output can be used for downstream plotting or comparative analyses.
 
-## Installation 
+## Installation
 
-### install with pip 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install kmer2stats.
+All dependencies (`pandas>=2.2.2`, `numpy>=1.26.4`, `scikit-bio>=0.6.3`, `argparse>=1.4.0`) are automatically installed by both methods below.
+
+### With pip
 
 ```bash
 pip install kmer2stats
 ```
 
-Or use the source with pip to install kmer2stats.
+Or directly from source:
 
 ```bash
 git clone https://github.com/SantaMcCloud/kmer2stats.git
@@ -21,19 +22,11 @@ cd kmer2stats
 pip install -r requirements.txt
 ```
 
-### install with Bioconda 
-Use [Bioconda](https://bioconda.github.io/recipes/kmer2stats/README.html) to install kmer2stats.
+### With conda
 
 ```bash
-conda install kmer2stats
+conda install bioconda::kmer2stats
 ```
-
-## Dependencies
-
-- pandas>=2.2.2
-- numpy>=1.26.4
-- scikit-bio>=0.6.3
-- argparse>=1.4.0
 
 ## Usage
 
@@ -41,12 +34,13 @@ conda install kmer2stats
 kmer2stats count_file
 ```
 
-Check [input](#input) for a example file if you want to make the count_file yourself or use the tool [Jellyfish](https://github.com/gmarcais/Jellyfish) to create a count_file.
+kmer2stats is also available as a **Galaxy tool** on the [usegalaxy.eu](https://usegalaxy.eu) server — search for `kmer2stats` in the tool panel.
 
 ## Input
-As Input you can use either the output from the tool jellyfish or you can use your own file in followed format:
 
-```bash
+The input is a space-separated k-mer count file with two columns (k-mer sequence and count), without a header. This is the format produced by [`jellyfish dump`](https://github.com/gmarcais/Jellyfish):
+
+```
 AAAAAC 6870
 AAAAAG 6312
 AAAAAT 7966
@@ -70,51 +64,86 @@ AAACCA 5011
 AAACCC 2469
 ```
 
+A test file is provided in [`test_files/test_file.txt`](test_files/test_file.txt).
+
 ## Output
 
-This tool output a `.csv` with the followed metrics:
+The output is a tab-separated (TSV) file (`compute_diversity.csv`) with two columns: the metric name and its computed value. Diverse metrics are reported:
 
-```bash
-shannon
-simpson_d
-pielou_e
-berger_parker_d
-doubles
-chao1
-ace
-margalef
-menhinick
-observed_features
-singles
-brillouin_d
-enspie
-fisher_alpha
-hill
-inv_simpson
-kempton_taylor_q
-renyi
-tsallis
-heip_e
-mcintosh_e
-simpson_e
-dominance
-gini_index
-mcintosh_d
-strong
-goods_coverage
-robbins
-total_count
-unique_kmers
-mean_count
-median_count
-max_count
-min_count
-std_count
-count_range
-num_singletons
-num_doubletons
-percent_singletons
-```
+### Richness estimators
+
+| Metric | Description |
+|---|---|
+| `observed_features` | Number of distinct k-mers observed |
+| `singles` | Number of k-mers observed exactly once (singletons) |
+| `doubles` | Number of k-mers observed exactly twice (doubletons) |
+| `chao1` | Chao1 non-parametric richness estimator |
+| `ace` | Abundance-based coverage estimator (ACE) |
+| `margalef` | Margalef's richness index |
+| `menhinick` | Menhinick's richness index |
+
+### Diversity indices
+
+| Metric | Description |
+|---|---|
+| `shannon` | Shannon entropy (H') — measures overall diversity |
+| `brillouin_d` | Brillouin index — diversity for fully censused communities |
+| `fisher_alpha` | Fisher's alpha diversity index |
+| `hill` | Hill number (order 1) — effective number of species |
+| `renyi` | Rényi entropy |
+| `tsallis` | Tsallis entropy |
+
+### Evenness metrics
+
+| Metric | Description |
+|---|---|
+| `pielou_e` | Pielou's evenness (J') — Shannon evenness |
+| `heip_e` | Heip's evenness index |
+| `mcintosh_e` | McIntosh evenness index |
+| `simpson_e` | Simpson's evenness index |
+| `enspie` | ENS_PIE (effective number of species via PIE) |
+
+### Dominance and concentration metrics
+
+| Metric | Description |
+|---|---|
+| `simpson_d` | Simpson's dominance index (D) |
+| `inv_simpson` | Inverse Simpson index (1/D) |
+| `berger_parker_d` | Berger-Parker dominance index |
+| `dominance` | Dominance index |
+| `gini_index` | Gini coefficient of inequality |
+| `mcintosh_d` | McIntosh dominance index |
+| `strong` | Strong's dominance index |
+| `kempton_taylor_q` | Kempton-Taylor Q statistic |
+
+### Coverage and completeness
+
+| Metric | Description |
+|---|---|
+| `goods_coverage` | Good's coverage estimator |
+| `robbins` | Robbins' estimator of the probability of unseen species |
+
+### Descriptive statistics
+
+| Metric | Description |
+|---|---|
+| `total_count` | Sum of all k-mer counts |
+| `unique_kmers` | Number of distinct k-mers |
+| `mean_count` | Mean count per k-mer |
+| `median_count` | Median count per k-mer |
+| `max_count` | Maximum k-mer count |
+| `min_count` | Minimum k-mer count |
+| `std_count` | Standard deviation of counts |
+| `count_range` | Range of counts (max − min) |
+| `num_singletons` | Number of k-mers with count = 1 |
+| `num_doubletons` | Number of k-mers with count = 2 |
+| `percent_singletons` | Percentage of unique k-mers that are singletons |
+
+## Citation
+
+If you use kmer2stats, please cite:
+
+> Faack, S. (2026). *kmer2stats* (v1.0.2). Zenodo. https://doi.org/10.5281/zenodo.19828576
 
 ## License
 
