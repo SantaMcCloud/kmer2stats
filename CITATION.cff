@@ -8,8 +8,14 @@ authors:
     given-names: "Santino"
     email: "santino_faack@gmx.de"
     orcid: "https://orcid.org/0009-0004-0382-2023"
+    affiliation: "University of Freiburg, Bioinformatics Group (HIWI)"
 
-version: 1.0.2
+  - family-names: "Zierep"
+    given-names: "Paul"
+    orcid: "https://orcid.org/0000-0003-2982-388X"
+    affiliation: "University of Freiburg, Bioinformatics Group"
+
+version: 1.0.3
 date-released: 2026-04-27
 
 repository-code: "https://github.com/SantaMcCloud/kmer2stats"
