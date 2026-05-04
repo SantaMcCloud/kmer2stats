@@ -15,7 +15,7 @@ def read_requirements():
 
 setup(
     name="kmer2stats",
-    version="1.0.2",
+    version="1.0.3",
     author="Santino Faack",
     author_email="santino_faack@gmx.de",
     description="Utility for computing k-mer-based statistics",
