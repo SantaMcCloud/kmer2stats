@@ -143,7 +143,7 @@ The output is a tab-separated (TSV) file (`compute_diversity.csv`) with two colu
 
 If you use kmer2stats, please cite:
 
-> Faack, S., Zierep, P., (2026). *kmer2stats* (v1.0.3). Zenodo. [https://doi.org/10.5281/zenodo.19828576](https://zenodo.org/records/20026288)
+> Faack, S., & Zierep, P. (2026). kmer2stats (v1.0.3). Zenodo. [https://doi.org/10.5281/zenodo.19828576](https://zenodo.org/records/20026288)
 
 ## License
 
